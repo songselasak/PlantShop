@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class plantShop {
     public static void main(String[]args) {
-        int loop = 1, sum=0;
+        int loop = 1;
+        float discount=0, sum=0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Plant Shop");
         while (loop == 1) {
@@ -125,7 +126,17 @@ public class plantShop {
                 System.out.println("Current price = $" + sum);
             }
         }
-        System.out.println("Total price = $" + sum);
+        if (sum >50 && sum < 100){
+            discount = (float)0.05 * sum;
+        }
+        else if (sum >= 100 && sum < 200){
+            discount = (float)0.10 * sum;
+        }
+        else if (sum >= 200){
+            discount = (float)0.15 * sum;
+        }
+        sum = sum - discount;
+        System.out.println("After discounting $" + discount + ", the total price = $" + sum);
         sc.close();
     }
 }
